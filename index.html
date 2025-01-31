@@ -3,66 +3,52 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>예쁜 사이트</title>
+  <title>감성 홈피</title>
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
   <div class="container">
-    <!-- 좌측 메뉴 -->
-    <aside class="sidebar">
-      <h1 class="logo">MyPage</h1>
-      <nav>
-        <ul>
-          <li><a href="#" onclick="showSection('home')">홈</a></li>
-          <li><a href="#" onclick="showSection('profile')">프로필</a></li>
-          <li><a href="#" onclick="showSection('album')">앨범</a></li>
-          <li><a href="#" onclick="showSection('board')">게시판</a></li>
-          <li><a href="#" onclick="showSection('guestbook')">방명록</a></li>
-        </ul>
-      </nav>
-    </aside>
+    <!-- 상단 배너 -->
+    <div class="banner">
+      <h1>Welcome to 감성 홈피</h1>
+    </div>
 
-    <!-- 중앙 콘텐츠 -->
-    <main class="content">
-      <section id="home-section" class="section">환영합니다! 여기는 홈입니다.</section>
-      <section id="profile-section" class="section hidden">
-        <h2>프로필</h2>
-        <img src="profile.jpg" alt="프로필 사진" class="profile-pic">
-        <p>여기는 사용자 정보가 표시됩니다.</p>
-      </section>
-      <section id="album-section" class="section hidden">
-        <h2>앨범</h2>
-        <p>여기는 앨범 내용이 표시됩니다.</p>
-      </section>
-      <section id="board-section" class="section hidden">
-        <h2>게시판</h2>
-        <p>게시판 내용이 여기에 표시됩니다.</p>
-      </section>
-      <section id="guestbook-section" class="section hidden">
-        <h2>방명록</h2>
-        <textarea placeholder="방명록을 작성하세요"></textarea>
-        <button>작성</button>
-      </section>
-    </main>
+    <!-- 프로필 섹션 -->
+    <div class="profile">
+      <img src="profile.jpg" alt="프로필 사진" class="profile-img">
+      <h2 class="username">사용자 닉네임</h2>
+      <p class="bio">"여기에 간단한 소개글을 작성하세요."</p>
+    </div>
 
-    <!-- 우측 뉴스 영역 -->
-    <aside class="news">
-      <h2>뉴스 및 위젯</h2>
-      <ul>
-        <li>최신 소식 1</li>
-        <li>최신 소식 2</li>
-        <li>최신 소식 3</li>
-      </ul>
-    </aside>
+    <!-- 메뉴 섹션 -->
+    <div class="menu">
+      <button onclick="showSection('home')">홈</button>
+      <button onclick="showSection('profile')">프로필</button>
+      <button onclick="showSection('guestbook')">방명록</button>
+      <button onclick="showSection('board')">게시판</button>
+    </div>
+
+    <!-- 컨텐츠 섹션 -->
+    <div id="content">
+      <div id="home-section" class="section">
+        <h2>여기는 홈 화면입니다.</h2>
+      </div>
+      <div id="profile-section" class="section hidden">
+        <h2>여기는 프로필 화면입니다.</h2>
+      </div>
+      <div id="guestbook-section" class="section hidden">
+        <h2>여기는 방명록 화면입니다.</h2>
+      </div>
+      <div id="board-section" class="section hidden">
+        <h2>여기는 게시판 화면입니다.</h2>
+      </div>
+    </div>
   </div>
-  <script>
-    function showSection(sectionId) {
-      document.querySelectorAll(".section").forEach(section => section.classList.add("hidden"));
-      document.getElementById(`${sectionId}-section`).classList.remove("hidden");
-    }
-  </script>
+
+  <script src="script.js"></script>
 </body>
 </html>
+
 
 
 
