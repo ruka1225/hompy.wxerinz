@@ -1,96 +1,34 @@
-/* 기본 스타일 */
 body {
-  font-family: "Gowun Dodum", sans-serif; /* 감성적인 폰트 */
+  font-family: 'Gowun Dodum', sans-serif;
+  background-color: #f0f8ff;
   margin: 0;
   padding: 0;
-  background-color: #e6f7ff; /* 하늘색 배경 */
-  color: #333;
 }
 
-.container {
-  width: 100%;
-  max-width: 800px;
-  margin: 0 auto;
+.login-container, .home-header, .guestbook-container, .board-container {
+  text-align: center;
   padding: 20px;
 }
 
-/* 상단 배너 */
-.banner {
-  text-align: center;
-  background-color: #d4f5c3; /* 연두색 */
-  padding: 20px;
-  border-radius: 10px;
-  margin-bottom: 20px;
-}
-
-.banner h1 {
-  margin: 0;
-  font-size: 24px;
-  color: #4a7c59;
-}
-
-/* 프로필 섹션 */
-.profile {
-  text-align: center;
-  margin-bottom: 20px;
-}
-
-.profile-img {
-  width: 120px;
-  height: 120px;
-  border-radius: 50%;
-  border: 3px solid #6db6f2;
-}
-
-.username {
-  font-size: 20px;
-  font-weight: bold;
+.login-container input, .guestbook-container textarea, .board-container input, .board-container textarea {
+  width: 80%;
   margin: 10px 0;
-  color: #4a7c59;
+  padding: 10px;
 }
 
-.bio {
-  font-size: 14px;
-  color: #555;
-}
-
-/* 메뉴 */
-.menu {
-  text-align: center;
-  margin-bottom: 20px;
-}
-
-.menu button {
-  background-color: #6db6f2; /* 하늘색 */
-  color: white;
+button {
+  padding: 10px 20px;
+  background: #4caf50;
+  color: #fff;
   border: none;
-  padding: 10px 15px;
-  margin: 5px;
   border-radius: 5px;
   cursor: pointer;
-  font-size: 14px;
 }
 
-.menu button:hover {
-  background-color: #4a91d3;
+.profile-container img {
+  width: 150px;
+  border-radius: 50%;
 }
 
-/* 컨텐츠 */
-.section {
-  display: none;
-  padding: 20px;
-  background-color: #fff;
-  border-radius: 10px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-}
-
-.section.hidden {
-  display: none;
-}
-
-.section h2 {
-  margin: 0;
-  color: #4a7c59;
-}
 
 
