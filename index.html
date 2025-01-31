@@ -1,97 +1,24 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ko">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>buddy BUDDY</title>
+    <title>WendyWendy 로그인</title>
     <link rel="stylesheet" href="style.css">
 </head>
-<body>
-    <!-- 로그인 화면 -->
-    <div id="login-container" class="login-container">
-        <h1>buddy BUDDY</h1>
-        <form onsubmit="login(event)">
-            <div class="input-group">
-                <label for="userId">아이디</label>
-                <input type="text" id="userId" placeholder="아이디 입력" required>
-            </div>
-            <div class="input-group">
-                <label for="password">비밀번호</label>
-                <input type="password" id="password" placeholder="비밀번호 입력" required>
-            </div>
-            <button type="submit" class="login-button">로그인</button>
+<body class="login-body">
+    <div id="login-container">
+        <h1>WendyWendy</h1>
+        <form id="login-form">
+            <label for="username">아이디</label>
+            <input type="text" id="username" required>
+            <label for="password">비밀번호</label>
+            <input type="password" id="password" required>
+            <button type="submit">로그인</button>
         </form>
     </div>
-
-    <!-- 홈 화면 -->
-    <div id="home-container" class="home-container hidden">
-        <audio autoplay loop>
-            <source src="bgm.mp3" type="audio/mp3">
-            Your browser does not support the audio tag.
-        </audio>
-        <header class="header">
-            <h1>buddy BUDDY 홈</h1>
-            <p id="welcome-message">환영합니다! 여기는 메인 홈 화면입니다.</p>
-        </header>
-        <aside class="menu">
-            <ul>
-                <li><a href="#" onclick="showSection('home')">홈</a></li>
-                <li><a href="#" onclick="showSection('board')">게시판</a></li>
-                <li><a href="#" onclick="showSection('guestbook')">방명록</a></li>
-            </ul>
-        </aside>
-        <main>
-            <!-- 홈 섹션 -->
-            <section id="home" class="section">
-                <div id="profile-edit" class="hidden">
-                    <h2>프로필 편집 (관리자 전용)</h2>
-                    <input type="text" id="profile-name" placeholder="사용자 이름 입력">
-                    <button onclick="editProfile()">프로필 저장</button>
-                </div>
-            </section>
-
-            <!-- 게시판 섹션 -->
-            <section id="board" class="section hidden">
-                <h2>게시판</h2>
-                <textarea id="post-content" placeholder="게시글 작성..." disabled></textarea>
-                <button id="post-button" onclick="submitPost()" disabled>게시글 작성</button>
-                <div id="posts">
-                    <p>게시글이 없습니다.</p>
-                </div>
-            </section>
-
-            <!-- 방명록 섹션 -->
-            <section id="guestbook" class="section hidden">
-                <h2>방명록</h2>
-                <textarea id="guestbook-entry" placeholder="방명록을 작성하세요..."></textarea>
-                <button onclick="submitGuestbook()">방명록 작성</button>
-                <div id="guestbook-messages">
-                    <p>방명록이 없습니다.</p>
-                </div>
-            </section>
-        </main>
-    </div>
-
-    <script src="script.js"></script>
-</body>
-</html
-    <section id="home" class="section">
-    <div id="profile-section">
-        <img src="profile.jpg" alt="프로필 사진" id="profile-image" class="profile-image">
-        <h2>사용자 프로필</h2>
-        <p id="welcome-message">환영합니다! 여기는 메인 홈 화면입니다.</p>
-    </div>
-    <div id="profile-edit" class="hidden">
-        <h2>프로필 편집 (관리자 전용)</h2>
-        <input type="file" id="profile-upload" accept="image/*">
-        <button onclick="changeProfileImage()">프로필 사진 변경</button>
-        <input type="text" id="profile-name" placeholder="사용자 이름 입력">
-        <button onclick="editProfile()">프로필 저장</button>
-    </div>
-</section>
-
-
     <script src="script.js"></script>
 </body>
 </html>
+
 
