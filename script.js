@@ -1,88 +1,52 @@
-body {
-    margin: 0;
-    padding: 0;
-    font-family: Arial, sans-serif;
-    background: linear-gradient(to bottom, #bde3fa, #ffffff);
+// 로그인 기능
+function login(event) {
+    event.preventDefault();
+
+    const userId = document.getElementById('userId').value;
+    const password = document.getElementById('password').value;
+
+    // 관리자 계정
+    const adminId = 'xowoxvo';
+    const adminPassword = 'xowoxvo0323';
+
+    if (userId === adminId && password === adminPassword) {
+        alert('관리자로 로그인했습니다!');
+        showHome(true);
+    } else {
+        alert('오늘도 방가방가>.<');
+        showHome(false);
+    }
 }
 
-.hidden {
-    display: none;
+// 홈 화면 표시
+function showHome(isAdmin) {
+    document.getElementById('login-container').classList.add('hidden');
+    document.getElementById('home-container').classList.remove('hidden');
+
+    if (isAdmin) {
+        document.getElementById('admin-controls').classList.remove('hidden');
+    }
 }
 
-.login-container,
-.home-container {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    height: 100vh;
+// 메뉴 섹션 전환
+function showSection(sectionId) {
+    const sections = document.querySelectorAll('.section');
+    sections.forEach(section => section.classList.add('hidden'));
+
+    document.getElementById(sectionId).classList.remove('hidden');
 }
 
-h1 {
-    font-size: 24px;
-    margin-bottom: 20px;
-}
+// 게시글 작성 기능
+function submitPost() {
+    const content = document.getElementById('post-content').value;
+    const posts = document.getElementById('posts');
 
-.input-group {
-    margin-bottom: 15px;
-    text-align: left;
-    width: 100%;
-}
-
-label {
-    font-size: 14px;
-}
-
-input {
-    width: 100%;
-    padding: 10px;
-    margin-top: 5px;
-    border: 1px solid #ddd;
-    border-radius: 5px;
-}
-
-button {
-    padding: 10px 15px;
-    border-radius: 5px;
-    border: none;
-    cursor: pointer;
-}
-
-button:hover {
-    opacity: 0.9;
-}
-
-.menu {
-    background-color: #4CAF50;
-    padding: 10px;
-    width: 100%;
-    text-align: center;
-}
-
-.menu ul {
-    list-style: none;
-    margin: 0;
-    padding: 0;
-    display: flex;
-    justify-content: center;
-}
-
-.menu li {
-    margin: 0 10px;
-}
-
-.menu a {
-    color: white;
-    text-decoration: none;
-    font-size: 14px;
-}
-
-.menu a:hover {
-    text-decoration: underline;
-}
-
-textarea {
-    width: 100%;
-    height: 100px;
-    margin-bottom: 10px;
+    if (content.trim()) {
+        const post = document.createElement('p');
+        post.textContent = content;
+        posts.appendChild(post);
+        document.getElementById('post-content').value = '';
+    } else {
+        alert('게시글을 입력해주세요!');
+    }
 }
