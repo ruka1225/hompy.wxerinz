@@ -74,7 +74,22 @@
 
     <script src="script.js"></script>
 </body>
-</html>
+</html
+    <section id="home" class="section">
+    <div id="profile-section">
+        <img src="profile.jpg" alt="프로필 사진" id="profile-image" class="profile-image">
+        <h2>사용자 프로필</h2>
+        <p id="welcome-message">환영합니다! 여기는 메인 홈 화면입니다.</p>
+    </div>
+    <div id="profile-edit" class="hidden">
+        <h2>프로필 편집 (관리자 전용)</h2>
+        <input type="file" id="profile-upload" accept="image/*">
+        <button onclick="changeProfileImage()">프로필 사진 변경</button>
+        <input type="text" id="profile-name" placeholder="사용자 이름 입력">
+        <button onclick="editProfile()">프로필 저장</button>
+    </div>
+</section>
+
 
     <script src="script.js"></script>
 </body>
