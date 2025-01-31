@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>로그인 및 홈 화면</title>
+    <title>buddy BUDDY</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
@@ -29,30 +29,52 @@
             <source src="bgm.mp3" type="audio/mp3">
             Your browser does not support the audio tag.
         </audio>
-        <nav class="menu">
+        <header class="header">
+            <h1>buddy BUDDY 홈</h1>
+            <p id="welcome-message">환영합니다! 여기는 메인 홈 화면입니다.</p>
+        </header>
+        <aside class="menu">
             <ul>
                 <li><a href="#" onclick="showSection('home')">홈</a></li>
-                <li><a href="#" onclick="showSection('profile')">프로필</a></li>
-                <li><a href="#" onclick="showSection('album')">앨범</a></li>
-                <li><a href="#" onclick="showSection('guestbook')">방명록</a></li>
                 <li><a href="#" onclick="showSection('board')">게시판</a></li>
+                <li><a href="#" onclick="showSection('guestbook')">방명록</a></li>
             </ul>
-        </nav>
-        <section id="home" class="section">환영합니다! 여기는 홈 화면입니다.</section>
-        <section id="profile" class="section hidden">프로필 페이지입니다.</section>
-        <section id="album" class="section hidden">앨범 페이지입니다.</section>
-        <section id="guestbook" class="section hidden">방명록 페이지입니다.</section>
-        <section id="board" class="section hidden">
-            <h2>게시판</h2>
-            <div id="admin-controls" class="hidden">
-                <textarea id="post-content" placeholder="게시글 작성..."></textarea>
-                <button onclick="submitPost()">게시글 작성</button>
-            </div>
-            <div id="posts">
-                <p>게시글이 없습니다.</p>
-            </div>
-        </section>
+        </aside>
+        <main>
+            <!-- 홈 섹션 -->
+            <section id="home" class="section">
+                <div id="profile-edit" class="hidden">
+                    <h2>프로필 편집 (관리자 전용)</h2>
+                    <input type="text" id="profile-name" placeholder="사용자 이름 입력">
+                    <button onclick="editProfile()">프로필 저장</button>
+                </div>
+            </section>
+
+            <!-- 게시판 섹션 -->
+            <section id="board" class="section hidden">
+                <h2>게시판</h2>
+                <textarea id="post-content" placeholder="게시글 작성..." disabled></textarea>
+                <button id="post-button" onclick="submitPost()" disabled>게시글 작성</button>
+                <div id="posts">
+                    <p>게시글이 없습니다.</p>
+                </div>
+            </section>
+
+            <!-- 방명록 섹션 -->
+            <section id="guestbook" class="section hidden">
+                <h2>방명록</h2>
+                <textarea id="guestbook-entry" placeholder="방명록을 작성하세요..."></textarea>
+                <button onclick="submitGuestbook()">방명록 작성</button>
+                <div id="guestbook-messages">
+                    <p>방명록이 없습니다.</p>
+                </div>
+            </section>
+        </main>
     </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
 
     <script src="script.js"></script>
 </body>
