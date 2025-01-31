@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>게시판</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="home-header">
+    <h1>게시판</h1>
+  </div>
+  <div class="board-container">
+    <form id="board-form">
+      <input type="text" id="title" placeholder="제목" required>
+      <textarea id="content" placeholder="내용을 입력하세요..." required></textarea>
+      <button type="submit">게시글 작성</button>
+    </form>
+    <ul id="board-list"></ul>
+  </div>
+  <script src="script.js"></script>
+</body>
+</html>
