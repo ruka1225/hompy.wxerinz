@@ -20,3 +20,6 @@ function handleLogin(event) {
     alert("아이디와 비밀번호를 입력하세요.");
   }
 }
+function navigate(page) {
+  window.location.href = page; // 페이지 이동
+}
