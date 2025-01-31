@@ -73,5 +73,6 @@ function addBoardPost() {
         document.getElementById('board-input').value = '';
     }
 }
+<script src="script.js?v=1.0"></script>
 
 
