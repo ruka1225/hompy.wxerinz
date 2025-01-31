@@ -1,54 +1,24 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ko">
 <head>
-  <link href="https://fonts.googleapis.com/css2?family=Gowun+Dodum&display=swap" rel="stylesheet">
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>내 홈피에 온 걸 환영해!</title>
+  <title>로그인</title>
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <div class="container">
-    <!-- 상단 배너 -->
-    <div class="banner">
-      <h1>Welcome to 주은 홈피</h1>
-    </div>
-
-    <!-- 프로필 섹션 -->
-    <div class="profile">
-      <img src="profile.jpg" alt="프로필 사진" class="profile-img">
-      <h2 class="username">여주은</h2>
-      <p class="bio">"방가방가>.< 나야 주으니"</p>
-    </div>
-
-    <!-- 메뉴 섹션 -->
-    <div class="menu">
-      <button onclick="showSection('home')">홈</button>
-      <button onclick="showSection('profile')">프로필</button>
-      <button onclick="showSection('guestbook')">방명록</button>
-      <button onclick="showSection('board')">게시판</button>
-    </div>
-
-    <!-- 컨텐츠 섹션 -->
-    <div id="content">
-      <div id="home-section" class="section">
-        <h2>주은이의 홈파얌</h2>
-      </div>
-      <div id="profile-section" class="section hidden">
-        <h2>내 셀카 오떙?.?</h2>
-      </div>
-      <div id="guestbook-section" class="section hidden">
-        <h2>방명록 쓰구 가!!!</h2>
-      </div>
-      <div id="board-section" class="section hidden">
-        <h2>게시판에 셀ㅋr 자주 올릴겡^^</h2>
-      </div>
-    </div>
+  <div class="login-container">
+    <h1>Welcome</h1>
+    <form id="login-form" onsubmit="return handleLogin(event)">
+      <input type="text" id="username" placeholder="아이디" required>
+      <input type="password" id="password" placeholder="비밀번호" required>
+      <button type="submit">로그인</button>
+    </form>
   </div>
-
   <script src="script.js"></script>
 </body>
 </html>
+
 
 
 
