@@ -1,22 +1,31 @@
 <!DOCTYPE html>
-<html lang="ko">
+<html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>방명록</title>
-  <link rel="stylesheet" href="style.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>방명록</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <div class="home-header">
-    <h1>방명록</h1>
-  </div>
-  <div class="guestbook-container">
-    <form id="guestbook-form">
-      <textarea id="message" placeholder="메시지를 입력하세요..." required></textarea>
-      <button type="submit">방명록 작성</button>
-    </form>
-    <ul id="guestbook-list"></ul>
-  </div>
-  <script src="script.js"></script>
+    <div class="container">
+        <div class="sidebar">
+            <ul class="menu">
+                <li><a href="home.html">홈</a></li>
+                <li><a href="profile.html">프로필</a></li>
+                <li><a href="board.html">게시판</a></li>
+                <li><a href="guestbook.html">방명록</a></li>
+            </ul>
+        </div>
+        <div class="main-content">
+            <h1>방명록</h1>
+            <form id="guestbook-form">
+                <input type="text" id="guest-name" placeholder="이름" required>
+                <textarea id="guest-message" placeholder="메시지" required></textarea>
+                <button type="submit">작성</button>
+            </form>
+            <div id="guestbook-list"></div>
+        </div>
+    </div>
+    <script src="guestbook.js"></script>
 </body>
 </html>
