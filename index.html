@@ -1,24 +1,69 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>wendywendy</title>
-    <link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>예쁜 사이트</title>
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <div class="login-box">
-        <h1>로그인</h1>
-        <form id="login-form">
-            <input type="text" id="username" placeholder="아이디" required>
-            <input type="password" id="password" placeholder="비밀번호" required>
-            <button type="submit">로그인</button>
-        </form>
-        <audio id="bgm" src="bgm.mp3" autoplay loop></audio>
-    </div>
-    <script src="script.js"></script>
+  <div class="container">
+    <!-- 좌측 메뉴 -->
+    <aside class="sidebar">
+      <h1 class="logo">MyPage</h1>
+      <nav>
+        <ul>
+          <li><a href="#" onclick="showSection('home')">홈</a></li>
+          <li><a href="#" onclick="showSection('profile')">프로필</a></li>
+          <li><a href="#" onclick="showSection('album')">앨범</a></li>
+          <li><a href="#" onclick="showSection('board')">게시판</a></li>
+          <li><a href="#" onclick="showSection('guestbook')">방명록</a></li>
+        </ul>
+      </nav>
+    </aside>
+
+    <!-- 중앙 콘텐츠 -->
+    <main class="content">
+      <section id="home-section" class="section">환영합니다! 여기는 홈입니다.</section>
+      <section id="profile-section" class="section hidden">
+        <h2>프로필</h2>
+        <img src="profile.jpg" alt="프로필 사진" class="profile-pic">
+        <p>여기는 사용자 정보가 표시됩니다.</p>
+      </section>
+      <section id="album-section" class="section hidden">
+        <h2>앨범</h2>
+        <p>여기는 앨범 내용이 표시됩니다.</p>
+      </section>
+      <section id="board-section" class="section hidden">
+        <h2>게시판</h2>
+        <p>게시판 내용이 여기에 표시됩니다.</p>
+      </section>
+      <section id="guestbook-section" class="section hidden">
+        <h2>방명록</h2>
+        <textarea placeholder="방명록을 작성하세요"></textarea>
+        <button>작성</button>
+      </section>
+    </main>
+
+    <!-- 우측 뉴스 영역 -->
+    <aside class="news">
+      <h2>뉴스 및 위젯</h2>
+      <ul>
+        <li>최신 소식 1</li>
+        <li>최신 소식 2</li>
+        <li>최신 소식 3</li>
+      </ul>
+    </aside>
+  </div>
+  <script>
+    function showSection(sectionId) {
+      document.querySelectorAll(".section").forEach(section => section.classList.add("hidden"));
+      document.getElementById(`${sectionId}-section`).classList.remove("hidden");
+    }
+  </script>
 </body>
 </html>
+
 
 
 
