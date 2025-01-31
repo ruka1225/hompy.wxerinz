@@ -11,7 +11,7 @@ function handleLogin(event) {
   } 
   // 일반 사용자 로그인
   else if (username && password) {
-    alert("일반 사용자 로그인 성공!");
+    alert("wendy wemdy 로그인 성공!");
     window.location.href = "home.html";
     sessionStorage.setItem("role", "user"); // 일반 사용자 역할 저장
   } 
