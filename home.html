@@ -1,26 +1,38 @@
 <!DOCTYPE html>
-<html lang="ko">
+<html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>홈 화면</title>
-  <link rel="stylesheet" href="style.css">
+  <title>Welcome to My Homepage</title>
+  <link href="style.css" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Gowun+Dodum&display=swap" rel="stylesheet">
 </head>
 <body>
-  <div class="home-header">
-    <h1>여주은 홈피</h1>
+  <div class="container">
+    <header>
+      <h1>Welcome to 주은 홈피</h1>
+      <p id="welcome-message">"오늘도 좋은 하루 되세요!"</p>
+    </header>
+    <section class="profile-section">
+      <img src="profile.jpg" alt="프로필 사진" class="profile-pic">
+      <h2 id="user-name">여주은</h2>
+      <p id="user-status">"방가방가 >.< 나야 주은이"</p>
+    </section>
+    <nav class="menu">
+      <button onclick="navigate('home.html')">🏠 홈</button>
+      <button onclick="navigate('profile.html')">👤 프로필</button>
+      <button onclick="navigate('guestbook.html')">📝 방명록</button>
+      <button onclick="navigate('board.html')">📋 게시판</button>
+    </nav>
+    <section class="recent-section">
+      <h3>📌 최근 게시물</h3>
+      <ul id="recent-posts">
+        <li>게시글 1: 오늘 날씨 너무 좋아요!</li>
+        <li>게시글 2: 새 프로젝트 시작했어요 😄</li>
+      </ul>
+    </section>
   </div>
-  <div class="profile-container">
-    <img src="your-photo.jpg" alt="프로필 사진" class="profile-pic">
-    <h2>여주은</h2>
-    <p>"방가방가 >.< 나야 주으니"</p>
-  </div>
-  <div class="menu">
-    <a href="home.html">홈</a>
-    <a href="profile.html">프로필</a>
-    <a href="guestbook.html">방명록</a>
-    <a href="board.html">게시판</a>
-  </div>
+  <script src="script.js"></script>
 </body>
 </html>
 
