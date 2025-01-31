@@ -1,23 +1,32 @@
 <!DOCTYPE html>
-<html lang="ko">
+<html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>게시판</title>
-  <link rel="stylesheet" href="style.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>게시판</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <div class="home-header">
-    <h1>게시판</h1>
-  </div>
-  <div class="board-container">
-    <form id="board-form">
-      <input type="text" id="title" placeholder="제목" required>
-      <textarea id="content" placeholder="내용을 입력하세요..." required></textarea>
-      <button type="submit">게시글 작성</button>
-    </form>
-    <ul id="board-list"></ul>
-  </div>
-  <script src="script.js"></script>
+    <div class="container">
+        <div class="sidebar">
+            <ul class="menu">
+                <li><a href="home.html">홈</a></li>
+                <li><a href="profile.html">프로필</a></li>
+                <li><a href="board.html">게시판</a></li>
+                <li><a href="guestbook.html">방명록</a></li>
+            </ul>
+        </div>
+        <div class="main-content">
+            <h1>게시판</h1>
+            <form id="board-form">
+                <input type="text" id="title" placeholder="제목" required>
+                <textarea id="content" placeholder="내용" required></textarea>
+                <button type="submit">게시</button>
+            </form>
+            <div id="board-list"></div>
+        </div>
+    </div>
+    <script src="board.js"></script>
 </body>
 </html>
+
