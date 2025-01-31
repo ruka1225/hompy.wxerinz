@@ -113,4 +113,39 @@ function editProfile() {
 
 // 초기화
 document.addEventListener('DOMContentLoaded', loadPosts);
+// 프로필 사진 변경 기능
+function changeProfileImage() {
+    const fileInput = document.getElementById('profile-upload');
+    const profileImage = document.getElementById('profile-image');
+
+    // 파일이 선택되었는지 확인
+    if (fileInput.files && fileInput.files[0]) {
+        const reader = new FileReader();
+
+        // 파일을 읽고 이미지를 업데이트
+        reader.onload = function (e) {
+            profileImage.src = e.target.result;
+
+            // 로컬 스토리지에 저장
+            localStorage.setItem('profileImage', e.target.result);
+        };
+
+        reader.readAsDataURL(fileInput.files[0]);
+    } else {
+        alert('프로필 사진을 선택해주세요!');
+    }
+}
+
+// 로컬 스토리지에서 프로필 사진 불러오기
+function loadProfileImage() {
+    const savedImage = localStorage.getItem('profileImage');
+    const profileImage = document.getElementById('profile-image');
+
+    if (savedImage) {
+        profileImage.src = savedImage;
+    }
+}
+
+// 페이지 로드 시 프로필 이미지 로드
+document.addEventListener('DOMContentLoaded', loadProfileImage);
 
