@@ -4,28 +4,26 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>방명록</title>
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="assets/css/style.css">
 </head>
 <body>
     <div class="container">
-        <div class="sidebar">
-            <ul class="menu">
+        <aside class="sidebar">
+            <ul>
                 <li><a href="home.html">홈</a></li>
                 <li><a href="profile.html">프로필</a></li>
                 <li><a href="board.html">게시판</a></li>
                 <li><a href="guestbook.html">방명록</a></li>
             </ul>
-        </div>
-        <div class="main-content">
+        </aside>
+        <main class="main-content">
             <h1>방명록</h1>
-            <form id="guestbook-form">
-                <input type="text" id="guest-name" placeholder="이름" required>
-                <textarea id="guest-message" placeholder="메시지" required></textarea>
+            <form>
+                <textarea placeholder="방명록 내용을 작성하세요"></textarea>
                 <button type="submit">작성</button>
             </form>
-            <div id="guestbook-list"></div>
-        </div>
+        </main>
     </div>
-    <script src="guestbook.js"></script>
 </body>
 </html>
+
