@@ -1,151 +1,77 @@
-// 사용자 정보
-let isAdmin = false;
-
-// 로그인 기능
-function login(event) {
+// 로그인 처리
+document.getElementById('login-form').addEventListener('submit', function (event) {
     event.preventDefault();
-
-    const userId = document.getElementById('userId').value;
+    const username = document.getElementById('username').value;
     const password = document.getElementById('password').value;
 
-    // 관리자 계정
-    const adminId = 'ruka0323';
-    const adminPassword = 'rukawaii0323!';
-
-    if (userId === adminId && password === adminPassword) {
-        alert('관리자로 로그인했습니다!');
-        isAdmin = true;
+    if (username === 'admin' && password === '1234') {
+        localStorage.setItem('role', 'admin');
+        window.location.href = 'home.html';
+    } else if (username === 'user' && password === 'user123') {
+        localStorage.setItem('role', 'user');
+        window.location.href = 'home.html';
     } else {
-        alert('오늘도 방가방가><!');
-        isAdmin = false;
+        alert('아이디 또는 비밀번호를 확인하세요.');
     }
+});
 
-    showHome();
-}
-
-// 홈 화면 표시
-function showHome() {
-    document.getElementById('login-container').classList.add('hidden');
-    document.getElementById('home-container').classList.remove('hidden');
-
-    if (isAdmin) {
-        document.getElementById('post-content').disabled = false;
-        document.getElementById('post-button').disabled = false;
+// 홈 화면 초기화
+document.addEventListener('DOMContentLoaded', () => {
+    const role = localStorage.getItem('role');
+    if (role === 'admin') {
         document.getElementById('profile-edit').classList.remove('hidden');
-    } else {
-        document.getElementById('post-content').disabled = true;
-        document.getElementById('post-button').disabled = true;
-        document.getElementById('profile-edit').classList.add('hidden');
+        document.getElementById('board-input').classList.remove('hidden');
+        document.getElementById('board-submit').classList.remove('hidden');
     }
-}
+    showSection('home');
+});
 
-// 메뉴 섹션 전환
+// 섹션 표시
 function showSection(sectionId) {
-    const sections = document.querySelectorAll('.section');
-    sections.forEach(section => section.classList.add('hidden'));
-
-    document.getElementById(sectionId).classList.remove('hidden');
-}
-
-// 게시글 저장 및 표시
-function submitPost() {
-    const content = document.getElementById('post-content').value;
-    const posts = document.getElementById('posts');
-
-    if (content.trim()) {
-        const post = document.createElement('p');
-        post.textContent = content;
-
-        posts.appendChild(post);
-        savePosts();
-        document.getElementById('post-content').value = '';
-    } else {
-        alert('게시글을 입력해주세요!');
-    }
-}
-
-// 방명록 저장 및 표시
-function submitGuestbook() {
-    const entry = document.getElementById('guestbook-entry').value;
-    const messages = document.getElementById('guestbook-messages');
-
-    if (entry.trim()) {
-        const message = document.createElement('p');
-        message.textContent = entry;
-        messages.appendChild(message);
-        document.getElementById('guestbook-entry').value = '';
-    } else {
-        alert('방명록을 입력해주세요!');
-    }
-}
-
-// 게시글 저장 (localStorage)
-function savePosts() {
-    const posts = document.querySelectorAll('#posts p');
-    const postArray = Array.from(posts).map(post => post.textContent);
-    localStorage.setItem('posts', JSON.stringify(postArray));
-}
-
-// 게시글 불러오기 (localStorage)
-function loadPosts() {
-    const savedPosts = JSON.parse(localStorage.getItem('posts') || '[]');
-    const posts = document.getElementById('posts');
-    posts.innerHTML = '';
-
-    savedPosts.forEach(content => {
-        const post = document.createElement('p');
-        post.textContent = content;
-        posts.appendChild(post);
+    document.querySelectorAll('.section').forEach(section => {
+        section.classList.add('hidden');
     });
+    document.getElementById(`${sectionId}-section`).classList.remove('hidden');
 }
 
-// 프로필 편집 (관리자 전용)
-function editProfile() {
-    const profileName = document.getElementById('profile-name').value;
-
-    if (profileName.trim()) {
-        document.getElementById('welcome-message').textContent = `환영합니다, ${profileName}!`;
-        alert('프로필이 저장되었습니다.');
-    } else {
-        alert('프로필 이름을 입력해주세요.');
-    }
-}
-
-// 초기화
-document.addEventListener('DOMContentLoaded', loadPosts);
-// 프로필 사진 변경 기능
+// 프로필 사진 변경
 function changeProfileImage() {
     const fileInput = document.getElementById('profile-upload');
     const profileImage = document.getElementById('profile-image');
+    const reader = new FileReader();
 
-    // 파일이 선택되었는지 확인
-    if (fileInput.files && fileInput.files[0]) {
-        const reader = new FileReader();
+    reader.onload = () => {
+        profileImage.src = reader.result;
+        localStorage.setItem('profileImage', reader.result);
+    };
 
-        // 파일을 읽고 이미지를 업데이트
-        reader.onload = function (e) {
-            profileImage.src = e.target.result;
+    if (fileInput.files[0]) reader.readAsDataURL(fileInput.files[0]);
+}
 
-            // 로컬 스토리지에 저장
-            localStorage.setItem('profileImage', e.target.result);
-        };
+// 방명록 추가
+function addGuestbook() {
+    const input = document.getElementById('guestbook-input').value;
+    const list = document.getElementById('guestbook-list');
 
-        reader.readAsDataURL(fileInput.files[0]);
-    } else {
-        alert('프로필 사진을 선택해주세요!');
+    if (input.trim() !== '') {
+        const li = document.createElement('li');
+        li.textContent = input;
+        list.appendChild(li);
+        document.getElementById('guestbook-input').value = '';
     }
 }
 
-// 로컬 스토리지에서 프로필 사진 불러오기
-function loadProfileImage() {
-    const savedImage = localStorage.getItem('profileImage');
-    const profileImage = document.getElementById('profile-image');
+// 게시글 추가
+function addBoardPost() {
+    const input = document.getElementById('board-input').value;
+    const list = document.getElementById('board-list');
 
-    if (savedImage) {
-        profileImage.src = savedImage;
+    if (input.trim() !== '') {
+        const li = document.createElement('li');
+        li.textContent = input;
+        list.appendChild(li);
+        document.getElementById('board-input').value = '';
     }
 }
 
-// 페이지 로드 시 프로필 이미지 로드
-document.addEventListener('DOMContentLoaded', loadProfileImage);
 
