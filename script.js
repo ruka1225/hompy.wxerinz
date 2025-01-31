@@ -1,6 +1,6 @@
-// 로그인 처리
 document.getElementById('login-form').addEventListener('submit', function (event) {
     event.preventDefault();
+
     const username = document.getElementById('username').value;
     const password = document.getElementById('password').value;
 
@@ -15,64 +15,56 @@ document.getElementById('login-form').addEventListener('submit', function (event
     }
 });
 
-// 홈 화면 초기화
 document.addEventListener('DOMContentLoaded', () => {
     const role = localStorage.getItem('role');
+
     if (role === 'admin') {
         document.getElementById('profile-edit').classList.remove('hidden');
         document.getElementById('board-input').classList.remove('hidden');
         document.getElementById('board-submit').classList.remove('hidden');
     }
+
     showSection('home');
 });
 
-// 섹션 표시
-function showSection(sectionId) {
-    document.querySelectorAll('.section').forEach(section => {
-        section.classList.add('hidden');
-    });
-    document.getElementById(`${sectionId}-section`).classList.remove('hidden');
+function showSection(section) {
+    document.querySelectorAll('.section').forEach(sec => sec.classList.add('hidden'));
+    document.getElementById(`${section}-section`).classList.remove('hidden');
 }
 
-// 프로필 사진 변경
 function changeProfileImage() {
     const fileInput = document.getElementById('profile-upload');
-    const profileImage = document.getElementById('profile-image');
-    const reader = new FileReader();
-
-    reader.onload = () => {
-        profileImage.src = reader.result;
-        localStorage.setItem('profileImage', reader.result);
-    };
-
-    if (fileInput.files[0]) reader.readAsDataURL(fileInput.files[0]);
-}
-
-// 방명록 추가
-function addGuestbook() {
-    const input = document.getElementById('guestbook-input').value;
-    const list = document.getElementById('guestbook-list');
-
-    if (input.trim() !== '') {
-        const li = document.createElement('li');
-        li.textContent = input;
-        list.appendChild(li);
-        document.getElementById('guestbook-input').value = '';
+    const image = document.getElementById('profile-image');
+    if (fileInput.files[0]) {
+        const reader = new FileReader();
+        reader.onload = () => {
+            image.src = reader.result;
+        };
+        reader.readAsDataURL(fileInput.files[0]);
     }
 }
 
-// 게시글 추가
+function addGuestbookEntry() {
+    const input = document.getElementById('guestbook-input');
+    const list = document.getElementById('guestbook-entries');
+    if (input.value.trim() !== '') {
+        const li = document.createElement('li');
+        li.textContent = input.value;
+        list.appendChild(li);
+        input.value = '';
+    }
+}
+
 function addBoardPost() {
-    const input = document.getElementById('board-input').value;
-    const list = document.getElementById('board-list');
-
-    if (input.trim() !== '') {
+    const input = document.getElementById('board-input');
+    const list = document.getElementById('board-posts');
+    if (input.value.trim() !== '') {
         const li = document.createElement('li');
-        li.textContent = input;
+        li.textContent = input.value;
         list.appendChild(li);
-        document.getElementById('board-input').value = '';
+        input.value = '';
     }
 }
-<script src="script.js?v=1.0"></script>
+
 
 
