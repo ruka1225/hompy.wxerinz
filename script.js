@@ -1,43 +1,88 @@
-// 방명록 메시지 추가 함수
-function addMessage() {
-    let name = document.getElementById("name").value;
-    let message = document.getElementById("message").value;
-    
-    if (name === "" || message === "") {
-        alert("이름과 메시지를 입력해주세요!");
-        return;
-    }
-
-    let guestbookList = document.getElementById("guestbook-list");
-
-    // 새로운 리스트 아이템 만들기
-    let listItem = document.createElement("li");
-    listItem.innerHTML = `<strong>${name}</strong>: ${message}`;
-
-    // 리스트에 추가
-    guestbookList.appendChild(listItem);
-
-    // 입력칸 초기화
-    document.getElementById("name").value = "";
-    document.getElementById("message").value = "";
-
-    // 메시지 저장
-    saveMessages();
+body {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+    background: linear-gradient(to bottom, #bde3fa, #ffffff);
 }
 
-// 메시지를 로컬 저장소(localStorage)에 저장
-function saveMessages() {
-    let guestbookList = document.getElementById("guestbook-list").innerHTML;
-    localStorage.setItem("guestbook", guestbookList);
+.hidden {
+    display: none;
 }
 
-// 페이지 로드 시 저장된 메시지 불러오기
-function loadMessages() {
-    let savedMessages = localStorage.getItem("guestbook");
-    if (savedMessages) {
-        document.getElementById("guestbook-list").innerHTML = savedMessages;
-    }
+.login-container,
+.home-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
 }
 
-// 페이지가 열릴 때 저장된 메시지 불러오기
-window.onload = loadMessages;
+h1 {
+    font-size: 24px;
+    margin-bottom: 20px;
+}
+
+.input-group {
+    margin-bottom: 15px;
+    text-align: left;
+    width: 100%;
+}
+
+label {
+    font-size: 14px;
+}
+
+input {
+    width: 100%;
+    padding: 10px;
+    margin-top: 5px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+}
+
+button {
+    padding: 10px 15px;
+    border-radius: 5px;
+    border: none;
+    cursor: pointer;
+}
+
+button:hover {
+    opacity: 0.9;
+}
+
+.menu {
+    background-color: #4CAF50;
+    padding: 10px;
+    width: 100%;
+    text-align: center;
+}
+
+.menu ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+}
+
+.menu li {
+    margin: 0 10px;
+}
+
+.menu a {
+    color: white;
+    text-decoration: none;
+    font-size: 14px;
+}
+
+.menu a:hover {
+    text-decoration: underline;
+}
+
+textarea {
+    width: 100%;
+    height: 100px;
+    margin-bottom: 10px;
+}
